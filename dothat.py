@@ -1,10 +1,12 @@
+# Made for the sole purpose of GCI 2019
 import PIL.Image
 import os
 from resizeimage import resizeimage
 from tkinter import filedialog
 import tinify
 from tkinter import *
-tinify.key="scp7tv5trlLwgDKVPvCLcYS6Pzdv2njN"
+tvar=input("Enter your tinipy API key:")
+tinify.key=tvar
 def selectfile(event):
     global ffs
     global z

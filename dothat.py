@@ -1,6 +1,5 @@
 import PIL.Image
 import os
-from resizeimage import resizeimage
 from tkinter import filedialog
 from tkinter.filedialog import askdirectory
 import tinify
@@ -80,7 +79,7 @@ def body1():
     Username = StringVar()
     root1.geometry("500x150")
     root1.config(bg="#220047")
-    root1.title("Welcome")
+    root1.title("Image Manipulator")
     label1 = Label(root1, text="Image Manipulator", font=("roboto", 37), bg="#220047", fg="#CE9141")
     label1.place(x=45, y=1)
     label2 = Label(root1, text="Select the directory ", font=("roboto", 23), bg="#220047", fg="#CE9141")

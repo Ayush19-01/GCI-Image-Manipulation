@@ -1,4 +1,3 @@
-#Made for the sole purpose of GCI 2019
 import PIL.Image
 import os
 from tkinter import filedialog
@@ -22,45 +21,74 @@ def directory(event):
     drt1 = askdirectory()
     os.chdir(drt1)
     for j in os.listdir(drt1):
-        if j.endswith(".jpg"):
+        if j.endswith(".jpg") or j.endswith(".png"):
             list1.append(j)
     print(list1)
     drt2="newphotos"
 
-    try:                    #Making a new directory or using the old one
+    try:
         os.mkdir(drt2)
         convert2()
     except:
         print("Directory already present!")
         convert2()
-
-        
-def convert2():       #Opening and converting the files one by one
+def convert2():
     global list1
     global label4
     global drt1
     global drt2
+    
+    
     for j in list1:
         img = PIL.Image.open(j)
         width, height = img.size
-        if width>height:
-            source = tinify.from_file(j)
-            resized = source.resize(method="scale",width=400)
-            os.chdir(drt2)
-            resized.to_file(j)
-            os.chdir(drt1)
-        if width<height:
-            source = tinify.from_file(j)
-            resized = source.resize(method="scale", height=400)
-            os.chdir(drt2)
-            resized.to_file(j)
-            os.chdir(drt1)
-        if width==height:
-            source = tinify.from_file(j)
-            resized = source.resize(method="scale", height=400,width=400)
-            os.chdir(drt2)
-            resized.to_file(j)
-            os.chdir(drt1)
+        if j.endswith(".jpg"):
+            if width>height:
+                source = tinify.from_file(j)
+                resized = source.resize(method="scale",width=400)
+                os.chdir(drt2)
+                resized.to_file(j)
+            
+            
+            if width<height:
+                source = tinify.from_file(j)
+                resized = source.resize(method="scale", height=400)
+                os.chdir(drt2)
+                resized.to_file(j)
+            
+            
+            if width==height:
+                source = tinify.from_file(j)
+                resized = source.resize(method="scale", height=400,width=400)
+                os.chdir(drt2)
+                resized.to_file(j)
+		
+		
+        if j.endswith(".png"):
+            if width>height:
+                basewidth = 400
+                wpercent = (basewidth/float(img.size[0]))
+                hsize = int((float(img.size[1])*float(wpercent)))
+                img = img.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
+                os.chdir(drt2)
+                img.save(j)
+		    
+		    
+            if width<height:
+                baseheight = 400
+                wpercent = (baseheight/float(img.size[1]))
+                bsize = int((float(img.size[0])*float(wpercent)))
+                img = img.resize((bsize,baseheight), PIL.Image.ANTIALIAS)
+                os.chdir(drt2)
+                img.save(j) 
+		    
+		    
+            if width==height:
+                img=img.resize((400,400), PIL.Image.ANTIALIAS)
+                os.chdir(drt2)
+                img.save(j) 
+			
+        os.chdir(drt1)
     label4.place_forget()
     label5 = Label(root1, text="Conversion done succesfully", font=("roboto", 25), bg="#220047", fg="#CE9141")
     label5.place(x=65, y=10)
@@ -70,10 +98,7 @@ def convert2():       #Opening and converting the files one by one
     button3.bind("<Button-1>", destruct)
     button3.place(x=250, y=80)
     print("Finished")
-
-    
-    
-def body1():          #Main GUI of the app
+def body1():
     global root1
     global Username
     global button1

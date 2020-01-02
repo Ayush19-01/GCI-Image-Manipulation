@@ -1,4 +1,3 @@
-import PIL.Image
 import os
 from tkinter import filedialog
 from tkinter.filedialog import askdirectory

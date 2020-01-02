@@ -25,4 +25,4 @@
    
    6) The output file is highly compressed and of vertical length 400 and changed accoring to its ratio.
    
-   ___* Note that the program supports only .jpg extensions currently___
+   ___* Note that the program supports .png and .jpg extensions currently___

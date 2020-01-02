@@ -28,13 +28,14 @@ def directory(event):
     print(list1)
     drt2="newphotos"
 
-    try:
+    try:                      #creating or using the old directory
         os.mkdir(drt2)
         convert2()
     except:
         print("Directory already present!")
         convert2()
-def convert2():
+
+def convert2():   #Opening And Converting the images 1 by 1
     global list1
     global label4
     global drt1
@@ -69,7 +70,10 @@ def convert2():
     button3.bind("<Button-1>", destruct)
     button3.place(x=210, y=80)
     print("Finished")
-def body1():
+
+    
+    
+def body1():   #Main gui of the program
     global root1
     global Username
     global button1

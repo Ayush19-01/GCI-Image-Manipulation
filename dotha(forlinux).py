@@ -1,3 +1,4 @@
+#Made for the sole purpose of GCI 2019
 import PIL.Image
 import os
 from tkinter import filedialog
@@ -40,55 +41,28 @@ def convert2():
     
     
     for j in list1:
+        os.chdir(drt1)
         img = PIL.Image.open(j)
         width, height = img.size
-        if j.endswith(".jpg"):
-            if width>height:
-                source = tinify.from_file(j)
-                resized = source.resize(method="scale",width=400)
-                os.chdir(drt2)
-                resized.to_file(j)
+        
+        if width>height:
+            source = tinify.from_file(j)
+            resized = source.resize(method="scale",width=400)
+            os.chdir(drt2)
+            resized.to_file(j)
             
+        if width<height:
+            source = tinify.from_file(j)
+            resized = source.resize(method="scale", height=400)
+            os.chdir(drt2)
+            resized.to_file(j)
             
-            if width<height:
-                source = tinify.from_file(j)
-                resized = source.resize(method="scale", height=400)
-                os.chdir(drt2)
-                resized.to_file(j)
+        if width==height:
+            source = tinify.from_file(j)
+            resized = source.resize(method="scale", height=400,width=400)
+            os.chdir(drt2)
+            resized.to_file(j)
             
-            
-            if width==height:
-                source = tinify.from_file(j)
-                resized = source.resize(method="scale", height=400,width=400)
-                os.chdir(drt2)
-                resized.to_file(j)
-		
-		
-        if j.endswith(".png"):
-            if width>height:
-                basewidth = 400
-                wpercent = (basewidth/float(img.size[0]))
-                hsize = int((float(img.size[1])*float(wpercent)))
-                img = img.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
-                os.chdir(drt2)
-                img.save(j)
-		    
-		    
-            if width<height:
-                baseheight = 400
-                wpercent = (baseheight/float(img.size[1]))
-                bsize = int((float(img.size[0])*float(wpercent)))
-                img = img.resize((bsize,baseheight), PIL.Image.ANTIALIAS)
-                os.chdir(drt2)
-                img.save(j) 
-		    
-		    
-            if width==height:
-                img=img.resize((400,400), PIL.Image.ANTIALIAS)
-                os.chdir(drt2)
-                img.save(j) 
-			
-        os.chdir(drt1)
     label4.place_forget()
     label5 = Label(root1, text="Conversion done succesfully", font=("roboto", 25), bg="#220047", fg="#CE9141")
     label5.place(x=65, y=10)

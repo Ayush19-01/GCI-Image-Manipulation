@@ -15,7 +15,7 @@
 ### Steps during the run:
    1) Enter your tinify API key.
    
-   2) Select a directory of .jpg format images to manipulate.
+   2) Select a directory of images to manipulate.
    
    3) A new directory named as newphotos is made, if it already exists, the same is used.
    

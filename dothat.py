@@ -1,3 +1,4 @@
+#Made for the sole purpose of GCI 2019
 import PIL.Image
 import os
 from tkinter import filedialog

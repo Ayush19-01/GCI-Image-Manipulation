@@ -1,7 +1,7 @@
 # GCI-Image-Manipulation
 ## Please read this manual properly for correct execution of the program
 ### Steps to set up for perfect execution:
-  1) Download the dothat.py file.
+  1) Download the dothat.py(windows) or dothatbetterforlinux.py file depending on your OS.
   
   2) Pre-requisites:
     

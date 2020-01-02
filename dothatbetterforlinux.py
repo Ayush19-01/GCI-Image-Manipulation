@@ -1,4 +1,3 @@
-#Made for the sole purpose of GCI 2019
 import PIL.Image
 import os
 from tkinter import filedialog
@@ -79,7 +78,7 @@ def body1():
     Username = StringVar()
     root1.geometry("600x150")
     root1.config(bg="#220047")
-    root1.title("Welcome")
+    root1.title("Image Manipulator")
     label1 = Label(root1, text="Image Manipulator", font=("roboto", 37), bg="#220047", fg="#CE9141")
     label1.place(x=70, y=1)
     label2 = Label(root1, text="Select the directory ", font=("roboto", 23), bg="#220047", fg="#CE9141")

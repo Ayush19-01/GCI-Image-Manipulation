@@ -15,14 +15,14 @@
 ### Steps during the run:
    1) Enter your tinify API key.
    
-   2) Select a file to be manipulated.
+   2) Select a directory of .jpg format images to manipulate.
    
-   3) Enter the name of the new file to be saved
+   3) A new directory named as newphotos is made, if it already exists, the same is used.
    
-   4) Wait for the file to be saved until a message pops on your screen.
+   4) Wait for the files to be saved until a message pops on your screen.
    
-   5) The new image file is saved in a folder called newfolder of the same directory from where the image is selected
+   5) The new images  is saved in a folder called newphotos of the same directory from where the images were selected
    
-   6) The output file is highly compresses and of vertical length 300 and changed accoring to its ratio.
+   6) The output file is highly compressed and of vertical length 400 and changed accoring to its ratio.
    
-   ___* Note that the program supports only .png extensions currently___
+   ___* Note that the program supports only .jpg extensions currently___
